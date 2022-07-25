@@ -9,6 +9,7 @@ let docentes:IDocente[]=[];
 let actividades:IActividades[]=[];
 let libCalificaciones:ILibroCalificaciones[]=[];
 let calificaciones:ICalificaciones[]=[];
+let cursos:Icurso[]=[];
 
 enum Actividad{
     Programacion="diseño",
@@ -65,7 +66,17 @@ function agregarDocente():void{
 
 
 }
-
+function agregarCurso():void{
+  let addcurso:Icurso={
+  nombre:leerHtml("curso_nombre"),
+  duracion:leerHtml("curso_duracion")
+}
+   
+cursos.push(addcurso);
+console.log(cursos);
+console.table(cursos);
+seleccionarOpcion();
+}
 
 //Agregar nombre
 
@@ -110,11 +121,10 @@ seleccionarOpcion();
   function seleccionarOpcion(): void{
     let cursoLibroCalf = document.getElementById("curso_libroCalf") as HTMLSelectElement;
     document.querySelectorAll("#curso_libroCalf option").forEach(option =>option.remove());
-    let cursos = Object.values(Curso);  
-    cursos.forEach((val)=>{
+    cursos.forEach((curso)=>{
       let opcion = document.createElement("option");
-      opcion.value = val;
-      opcion.text = val;
+      opcion.value = curso.nombre;
+      opcion.text = curso.nombre;
       cursoLibroCalf.add(opcion);
     })
     

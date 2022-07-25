@@ -94,7 +94,25 @@
             <input onclick="agregarDocente()" type="button" value="Ingresar" class="btn btn-success col-12 mt-4">
         </div>
     </div>
-
+    <hr>
+    <br>
+    <div class="card w-50 container-fluid d-flex justify-content-center mb-5">
+        <div class="card-header">
+            Agregar Curso
+        </div>
+        <div class="card-body">
+            <!--* Inputs del Formulario -->
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre Curso</label>
+                <input type="text" name="" id="curso_nombre" class="form-control" placeholder="nombre curso "
+                    aria-describedby="helpId">
+                    <label for="nombre" class="form-label">Duracion </label>
+                    <input type="text"  id="curso_duracion" class="form-control" placeholder="duracion curso"
+                    aria-describedby="helpId">
+                <div class="card-footer text-muted d-flex justify-content-center mt-5 border-0">
+                   <button  onclick="agregarCurso()" type="button" value="Ingresar" class="btn btn-success col-12">Agregar</button> 
+                </div>
+            </div>
     <hr>
     <br>
     <div class="card w-50 container-fluid d-flex justify-content-center mb-5">
@@ -173,8 +191,8 @@
 
             <div class="mb-3">
                 <label for="" class="form-label">Nota</label>
-                <select type="text" name="" id="estudiante_asignacionCalf" class="form-control" placeholder="10"
-                    aria-describedby="helpId"></select>
+                <input type="text" name="" id="estudiante_asignacionCalf" class="form-control" placeholder="10"
+                    aria-describedby="helpId">
             </div>
             
         </div>

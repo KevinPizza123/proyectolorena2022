@@ -5,6 +5,7 @@ let docentes = [];
 let actividades = [];
 let libCalificaciones = [];
 let calificaciones = [];
+let cursos = [];
 var Actividad;
 (function (Actividad) {
     Actividad["Programacion"] = "dise\u00F1o";
@@ -49,6 +50,16 @@ function agregarDocente() {
     console.log(docentes);
     console.table(docentes);
 }
+function agregarCurso() {
+    let addcurso = {
+        nombre: leerHtml("curso_nombre"),
+        duracion: leerHtml("curso_duracion")
+    };
+    cursos.push(addcurso);
+    console.log(cursos);
+    console.table(cursos);
+    seleccionarOpcion();
+}
 //Agregar nombre
 function agregarActividad() {
     let actividadActual = {
@@ -87,11 +98,10 @@ seleccionarOpcion();
 function seleccionarOpcion() {
     let cursoLibroCalf = document.getElementById("curso_libroCalf");
     document.querySelectorAll("#curso_libroCalf option").forEach(option => option.remove());
-    let cursos = Object.values(Curso);
-    cursos.forEach((val) => {
+    cursos.forEach((curso) => {
         let opcion = document.createElement("option");
-        opcion.value = val;
-        opcion.text = val;
+        opcion.value = curso.nombre;
+        opcion.text = curso.nombre;
         cursoLibroCalf.add(opcion);
     });
     let actividad_libroCalf = document.getElementById("actividad_libroCalf");
