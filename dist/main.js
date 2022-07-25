@@ -3,19 +3,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 let estudiantes = [];
 let docentes = [];
 let actividades = [];
+let libCalificaciones = [];
 let calificaciones = [];
+var Actividad;
+(function (Actividad) {
+    Actividad["Programacion"] = "dise\u00F1o";
+    Actividad["Algebra"] = "ejercicios de ecuaciones";
+    Actividad["Base"] = "modelo normalizado";
+})(Actividad || (Actividad = {}));
 var Curso;
 (function (Curso) {
     Curso["Programacion"] = "Programacion Visual";
     Curso["Algebra"] = "Algebra";
-    Curso["Base"] = "Base de Datos";
+    Curso["Base"] = "base de datos";
 })(Curso || (Curso = {}));
-var Actividad;
-(function (Actividad) {
-    Actividad["Ciencias"] = "Ciencias";
-    Actividad["Naturales"] = "Naturales";
-    Actividad["Lengua"] = "Lengua";
-})(Actividad || (Actividad = {}));
+//Agregar Estudiante
 function agregarEstudiante() {
     // console.log((<HTMLInputElement>document.getElementById("cedula"))!.value
     let estudianteActual = {
@@ -29,7 +31,12 @@ function agregarEstudiante() {
     estudiantes.push(estudianteActual);
     console.log(estudiantes);
     console.table(estudiantes);
+    seleccionaOpcion();
 }
+function leerHtml(id) {
+    return document.getElementById(id).value;
+}
+// Agregar docente
 function agregarDocente() {
     let docenteActual = {
         cedula: parseInt(leerHtml("cedula_docente")),
@@ -42,48 +49,72 @@ function agregarDocente() {
     console.log(docentes);
     console.table(docentes);
 }
-function agregarActiviades() {
+//Agregar nombre
+function agregarActividad() {
     let actividadActual = {
         nombre: leerHtml("nombre_actividad"),
     };
     actividades.push(actividadActual);
-    console.log(actividades);
     console.table(actividades);
+    console.log(actividades);
+    seleccionaOpcion();
 }
-seleccionarOpcion();
-function agregarlibroCalificaciones() {
-    let libroCalActual = {
+//Agreagar libro calificaciones
+function agregarCalificaciones() {
+    let libroCalfActual = {
         valor: leerHtml("valor_libroCalf"),
         curso: leerHtml("curso_libroCalf"),
         actividad: leerHtml("actividad_libroCalf"),
         notaMaxima: parseInt(leerHtml("notaMaxima_libroCalf")),
     };
-    calificaciones.push(libroCalActual);
-    console.log(calificaciones);
-    console.table(calificaciones);
+    libCalificaciones.push(libroCalfActual);
+    console.table(libCalificaciones);
+    console.log(libCalificaciones);
 }
-function leerHtml(id) {
-    return document.getElementById(id).value;
+function asignarCalificaciones() {
+    let asignacionCalificaciones = {
+        estudiante: leerHtml("estudiante_asignacionCalf"),
+        libroCalificaciones: leerHtml("libroCalf_asignacionCalf"),
+        nota: parseInt(leerHtml("nota_asignacionCalf")),
+    };
+    calificaciones.push(asignacionCalificaciones);
+    console.table(libCalificaciones);
+    console.log(libCalificaciones);
 }
-function seleccionarOpcion() {
-    let cursolibroCalf = document.getElementById("curso_libroCalf");
+//Agregar curso
+seleccionaOpcion();
+function seleccionaOpcion() {
+    let cursoLibroCalf = document.getElementById("curso_libroCalf");
     document.querySelectorAll("#curso_libroCalf option").forEach(option => option.remove());
     let cursos = Object.values(Curso);
-    cursos.forEach((dato) => {
+    cursos.forEach((val) => {
         let opcion = document.createElement("option");
-        opcion.value = dato;
-        opcion.text = dato;
-        cursolibroCalf.add(opcion);
+        opcion.value = val;
+        opcion.text = val;
+        cursoLibroCalf.add(opcion);
     });
-    //cursolibroCalf.add(Option);
-    let actividadlibroCalf = document.getElementById("actividad_libroCalf");
+    let actividad_libroCalf = document.getElementById("actividad_libroCalf");
     document.querySelectorAll("#actividad_libroCalf option").forEach(option => option.remove());
-    let actividad = Object.values(Actividad);
-    actividades.forEach((actividad) => {
+    actividades.forEach((Actividad) => {
         let opcion = document.createElement("option");
-        opcion.value = actividad.nombre;
-        opcion.text = actividad.nombre;
-        actividadlibroCalf.add(opcion);
+        opcion.value = Actividad.nombre;
+        opcion.text = Actividad.nombre;
+        actividad_libroCalf.add(opcion);
     });
-    //cursolibroCalf.add(Option);
+    let estudiante_asignacionCalif = document.getElementById("estudiante_asignacionCalif");
+    document.querySelectorAll("#estudiante_asignacionCalif option").forEach(option => option.remove());
+    estudiantes.forEach((estudiante) => {
+        let opcion = document.createElement("option");
+        opcion.value = estudiante.nombre;
+        opcion.text = estudiante.nombre;
+        estudiante_asignacionCalif.add(opcion);
+    });
+    let libroCalf_asignacionCalf = document.getElementById("libroCalf_asignacionCalf");
+    document.querySelectorAll("#libroCalf_asignacionCalf option").forEach(option => option.remove());
+    libCalificaciones.forEach((config) => {
+        let opcion = document.createElement("option");
+        opcion.value = config.valor;
+        opcion.text = config.valor;
+        libroCalf_asignacionCalf.add(opcion);
+    });
 }
