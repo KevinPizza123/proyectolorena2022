@@ -31,7 +31,7 @@ function agregarEstudiante() {
     estudiantes.push(estudianteActual);
     console.log(estudiantes);
     console.table(estudiantes);
-    seleccionaOpcion();
+    seleccionarOpcion();
 }
 function leerHtml(id) {
     return document.getElementById(id).value;
@@ -57,9 +57,10 @@ function agregarActividad() {
     actividades.push(actividadActual);
     console.table(actividades);
     console.log(actividades);
-    seleccionaOpcion();
+    seleccionarOpcion();
 }
 //Agreagar libro calificaciones
+seleccionarOpcion();
 function agregarCalificaciones() {
     let libroCalfActual = {
         valor: leerHtml("valor_libroCalf"),
@@ -82,8 +83,8 @@ function asignarCalificaciones() {
     console.log(libCalificaciones);
 }
 //Agregar curso
-seleccionaOpcion();
-function seleccionaOpcion() {
+seleccionarOpcion();
+function seleccionarOpcion() {
     let cursoLibroCalf = document.getElementById("curso_libroCalf");
     document.querySelectorAll("#curso_libroCalf option").forEach(option => option.remove());
     let cursos = Object.values(Curso);
@@ -101,13 +102,13 @@ function seleccionaOpcion() {
         opcion.text = Actividad.nombre;
         actividad_libroCalf.add(opcion);
     });
-    let estudiante_asignacionCalif = document.getElementById("estudiante_asignacionCalif");
-    document.querySelectorAll("#estudiante_asignacionCalif option").forEach(option => option.remove());
+    let estudianteAsignacionCalf = document.getElementById("estudiante_asignacionCalf");
+    document.querySelectorAll("#estudiante_asignacionCalf option").forEach(option => option.remove());
     estudiantes.forEach((estudiante) => {
         let opcion = document.createElement("option");
         opcion.value = estudiante.nombre;
         opcion.text = estudiante.nombre;
-        estudiante_asignacionCalif.add(opcion);
+        estudianteAsignacionCalf.add(opcion);
     });
     let libroCalf_asignacionCalf = document.getElementById("libroCalf_asignacionCalf");
     document.querySelectorAll("#libroCalf_asignacionCalf option").forEach(option => option.remove());

@@ -108,7 +108,7 @@
                 <input type="text" name="" id="nombre_actividad" class="form-control" placeholder="agregar actividad"
                     aria-describedby="helpId">
                 <div class="card-footer text-muted d-flex justify-content-center mt-5 border-0">
-                    <input onclick="agregarActividad()" type="button" value="Ingresar" class="btn btn-success col-12">
+                   <button  onclick="agregarActividad()" type="button" value="Ingresar" class="btn btn-success col-12">Agregar</button> 
                 </div>
             </div>
 
@@ -129,7 +129,7 @@
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">valor</label>
-                <select name="" id="valor_libroCalf" class="form-control">
+                <input type="text" name="" id="valor_libroCalf" class="form-control">
 
                 </select>
             </div>
@@ -151,7 +151,7 @@
         </div>
 
         <div class="card-footer text-muted">
-            <input onclick="agregarCalificaciones()" type="button" value="Ingresar" class="btn btn-success col-12">
+           <button onclick="agregarCalificaciones()" type="button" value="Ingresar" class="btn btn-success col-12">Agregar </button>
         </div>
     </div>
     <div class="card mt-5 container">
@@ -161,26 +161,26 @@
         <div class="card-body">
             <div class="mb-3">
                 <label for="" class="form-label">Estudiante</label>
-                <input type="text" name="" id="estudiante_asignacionCalif" class="form-control" placeholder=""
-                    aria-describedby="helpId">
+                <select type="text" name="" id="estudiante_asignacionCalf" class="form-control" placeholder=""
+                    aria-describedby="helpId"><select>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Libro caificaciones</label>
-                <select name="" id="libroCalf_asignacionCalf" class="form-control">
+                <select name="" id="estudiante_asignacionCalf" class="form-control">
 
                 </select>
             </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">Nota</label>
-                <input type="text" name="" id="nota_asignacionCalf" class="form-control" placeholder="10"
-                    aria-describedby="helpId">
+                <select type="text" name="" id="estudiante_asignacionCalf" class="form-control" placeholder="10"
+                    aria-describedby="helpId"></select>
             </div>
             
         </div>
 
         <div class="card-footer text-muted">
-            <input onclick="asignacionCalificaciones()" type="button" value="Ingresar" class="btn btn-success col-12">
+            <button onclick="asignarCalificaciones()" type="button" value="Ingresar" class="btn btn-success col-12"> Agregar</button>
         </div>
     </div>
     <br>

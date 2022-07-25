@@ -1,4 +1,4 @@
-export interface ICalificaciones{
+interface ICalificaciones{
 estudiante:string;
 libroCalificaciones:string;
 nota:number;

@@ -2,7 +2,7 @@ import {IEstudiante} from "./entidades/estudiante";
 import {IDocente} from "./entidades/docente";
 import { IActividades } from "./entidades/Actividades";
 import { ILibroCalificaciones } from "./entidades/libroCalificaciones";
-import { ICalificaciones } from "./entidades/calificaciones";
+
 
 let estudiantes:IEstudiante[]=[];
 let docentes:IDocente[]=[];
@@ -41,7 +41,7 @@ function agregarEstudiante():void{
     estudiantes.push(estudianteActual);
     console.log(estudiantes);
     console.table(estudiantes);
-    seleccionaOpcion();
+    seleccionarOpcion();
 
    
 }
@@ -76,11 +76,11 @@ function agregarActividad(): void {
     actividades.push(actividadActual);
     console.table(actividades);
     console.log(actividades);
-    seleccionaOpcion()
+    seleccionarOpcion()
   }
 
 //Agreagar libro calificaciones
-
+seleccionarOpcion();
   function agregarCalificaciones(): void {
     let libroCalfActual: ILibroCalificaciones = {
       valor: leerHtml("valor_libroCalf"),
@@ -92,6 +92,7 @@ function agregarActividad(): void {
     console.table(libCalificaciones);
     console.log(libCalificaciones);
   }
+ 
   function asignarCalificaciones(): void {
     let asignacionCalificaciones:ICalificaciones = {
       estudiante:leerHtml("estudiante_asignacionCalf"),
@@ -105,8 +106,8 @@ function agregarActividad(): void {
 
 //Agregar curso
 
-seleccionaOpcion();
-  function seleccionaOpcion(): void{
+seleccionarOpcion();
+  function seleccionarOpcion(): void{
     let cursoLibroCalf = document.getElementById("curso_libroCalf") as HTMLSelectElement;
     document.querySelectorAll("#curso_libroCalf option").forEach(option =>option.remove());
     let cursos = Object.values(Curso);  
@@ -125,13 +126,13 @@ seleccionaOpcion();
       opcion.text = Actividad.nombre;
       actividad_libroCalf.add(opcion);
     })
-    let estudiante_asignacionCalif = document.getElementById("estudiante_asignacionCalif") as HTMLSelectElement;
-    document.querySelectorAll("#estudiante_asignacionCalif option").forEach(option =>option.remove());
+    let estudianteAsignacionCalf = document.getElementById("estudiante_asignacionCalf") as HTMLSelectElement;
+    document.querySelectorAll("#estudiante_asignacionCalf option").forEach(option =>option.remove());
     estudiantes.forEach((estudiante)=>{
       let opcion = document.createElement("option");
       opcion.value = estudiante.nombre;
       opcion.text = estudiante.nombre;
-      estudiante_asignacionCalif.add(opcion);
+      estudianteAsignacionCalf.add(opcion);
     })
     let libroCalf_asignacionCalf = document.getElementById("libroCalf_asignacionCalf") as HTMLSelectElement;
     document.querySelectorAll("#libroCalf_asignacionCalf option").forEach(option =>option.remove());
