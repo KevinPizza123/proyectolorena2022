@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <h1>Formulario de Ingreso de datos</h1>
+    <div class="card container">
+        <div class="card-header">
+            Datos del Estudiante
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="" class="form-label">Cedula</label>
+                <input type="text" name="" id="cedula_estudiante" class="form-control" placeholder="1764868446"
+                    aria-describedby="helpId">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input type="text" name="" id="nombre_estudiante" class="form-control" placeholder="Pedro Sanchez"
+                    aria-describedby="helpId">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Edad</label>
+                <input type="number" name="" id="edad_estudiante" class="form-control" placeholder="12"
+                    aria-describedby="helpId">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Codigo de la matricula</label>
+                <input type="text" name="" id="codigoMatricula_estudiante" class="form-control" placeholder="524j52"
+                    aria-describedby="helpId">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Nivel</label>
+                <input type="text" name="" id="nivel_estudiante" class="form-control" placeholder="primero"
+                    aria-describedby="helpId">
+            </div>
+        </div>
+
+        <div class="card-footer text-muted">
+            <input onclick="agregarEstudiante()" type="button" value="Ingresar" class="btn btn-success col-12">
+        </div>
+    </div>
+    <hr>
+    <br>
+
+    <div class="card mt-5 container">
+        <div class="card-header">
+            Datos del Docente
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="" class="form-label">Cedula</label>
+                <input type="text" name="" id="cedula_docente" class="form-control" placeholder="175344254"
+                    aria-describedby="helpId">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input type="text" name="" id="nombre_docente" class="form-control" placeholder="Luis Rodrigues"
+                    aria-describedby="helpId">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Edad</label>
+                <input type="number" name="" id="edad_docente" class="form-control" placeholder="35"
+                    aria-describedby="helpId">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Titulo</label>
+                <input type="text" name="" id="titulo_docente" class="form-control" placeholder="Ingeniero en sistemas"
+                    aria-describedby="helpId">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Asignatura que importa</label>
+
+                <select class="form-control" name="" id="asignatura_docente">
+                    <option value="Programacion">Programacion</option>
+                    <option value="Metodologias">Metodologias</option>
+                    <option value="Analisis">Analisis</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="card-footer text-muted">
+            <input onclick="agregarDocente()" type="button" value="Ingresar" class="btn btn-success col-12 mt-4">
+        </div>
+    </div>
+
+    <hr>
+    <br>
+    <div class="card w-50 container-fluid d-flex justify-content-center mb-5">
+        <div class="card-header">
+            Agregar actividad
+        </div>
+        <div class="card-body">
+            <!--* Inputs del Formulario -->
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" name="" id="nombre_actividad" class="form-control" placeholder="agregar actividad"
+                    aria-describedby="helpId">
+                <div class="card-footer text-muted d-flex justify-content-center mt-5 border-0">
+                    <input onclick="agregarActividad()" type="button" value="Ingresar" class="btn btn-success col-12">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+    <br>
+    <div class="card mt-5 container">
+        <div class="card-header">
+           Libro Calificaciones
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="" class="form-label">Actividad</label>
+                <select name="" id="actividad_libroCalf" class="form-control">
+
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">valor</label>
+                <select name="" id="valor_libroCalf" class="form-control">
+
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Nota Maxima</label>
+                <input type="text" name="" id="notaMaxima_libroCalf" class="form-control" placeholder="10"
+                    aria-describedby="helpId">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Curso</label>
+
+                <select class="form-control" name="" id="curso_libroCalf">
+                    <!--  <option value="Programacion">Programacion</option>
+                    <option value="Metodologias">Metodologias</option>
+                    <option value="Analisis">Analisis</option> -->
+                </select>
+            </div>
+        </div>
+
+        <div class="card-footer text-muted">
+            <input onclick="agregarCalificaciones()" type="button" value="Ingresar" class="btn btn-success col-12">
+        </div>
+    </div>
+    <div class="card mt-5 container">
+        <div class="card-header">
+           Asignacion de calificacioens
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="" class="form-label">Estudiante</label>
+                <input type="text" name="" id="estudiante_asignacionCalif" class="form-control" placeholder=""
+                    aria-describedby="helpId">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Libro caificaciones</label>
+                <select name="" id="libroCalf_asignacionCalf" class="form-control">
+
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Nota</label>
+                <input type="text" name="" id="nota_asignacionCalf" class="form-control" placeholder="10"
+                    aria-describedby="helpId">
+            </div>
+            
+        </div>
+
+        <div class="card-footer text-muted">
+            <input onclick="asignacionCalificaciones()" type="button" value="Ingresar" class="btn btn-success col-12">
+        </div>
+    </div>
+    <br>
+    <hr><h2>VOSUALIZACION DE DATOS </h2>
+    <div>
+    <table>
+    <thead>
+    <th>Cedula</th>
+    <th>Nombre</th>
+    <th>Nivel</th>
+    <th>Curso</th>
+    <th>Actividad</th>
+    <th>Calificacion</th>
+    
+    </thead>
+    <tbody>
+    <tr>{{cedula}}</tr>
+    <tr>{{nombre}}</tr>
+    <tr>{{nivel}}</tr>
+    <tr>{{curso}}</tr>
+    <tr>{{actividad}}</tr>
+    <tr>{{calificacion}}</tr>
+    </tbody>
+    </table>
+    </div>
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script>
+        let exports = {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+        </script>
+    <script src="./dist/main.js"></script>
+</body>
+
+</html>
