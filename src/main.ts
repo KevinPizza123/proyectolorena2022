@@ -2,7 +2,7 @@ import {IEstudiante} from "./entidades/estudiante";
 import {IDocente} from "./entidades/docente";
 import { IActividades } from "./entidades/Actividades";
 import { ILibroCalificaciones } from "./entidades/libroCalificaciones";
-
+import {IReporteCalificacionesDTO} from "./entidades/ReporteCalificacionesDTO"
 
 let estudiantes:IEstudiante[]=[];
 let docentes:IDocente[]=[];
@@ -31,7 +31,7 @@ function agregarEstudiante():void{
     let estudianteActual :IEstudiante ={
         //id:Number(),
 
-        cedula:parseInt(leerHtml("cedula_estudiante")),
+        cedula:leerHtml("cedula_estudiante"),
         nombre:leerHtml("nombre_estudiante"),
         edad:parseInt(leerHtml("edad_estudiante")),
         codigoMatricula:leerHtml("codigoMatricula_estudiante"),
@@ -54,7 +54,7 @@ function leerHtml(id:string):string{
 
 function agregarDocente():void{
     let docenteActual:IDocente={
-        cedula:parseInt(leerHtml("cedula_docente")),
+        cedula:leerHtml("cedula_docente"),
         nombre:leerHtml("nombre_docente"),
         edad:parseInt(leerHtml("edad_docente")),
        titulo:leerHtml("titulo_docente"),
@@ -106,9 +106,10 @@ seleccionarOpcion();
  
   function asignarCalificaciones(): void {
     let asignacionCalificaciones:ICalificaciones = {
-      estudiante:leerHtml("estudiante_asignacionCalf"),
+      estudiante: leerHtml("estudiante_asignacionCalf"),
       libroCalificaciones: leerHtml("libroCalf_asignacionCalf"),
       nota: parseInt(leerHtml("nota_asignacionCalf")),
+      calificacion: undefined
     };
     calificaciones.push(asignacionCalificaciones);
     console.table(libCalificaciones);
@@ -154,12 +155,60 @@ seleccionarOpcion();
     })
 
 }
+class ReporteCalificaciones{
+ 
+constructor(public estudiantes:IEstudiante[],
+ public actividades:IActividades[],
+ public libCalificaciones:ILibroCalificaciones[],
+ public calificaciones:ICalificaciones[],
+ public docentes?:IDocente[]){
+  
+  }
+  public crearLibroCalificacionesDTO():IReporteCalificacionesDTO[]{
+    let reporteLibroCalificacionesDTO:IReporteCalificacionesDTO[]=[];
+    
+    this.calificaciones.forEach(
+      (calificacion) =>{
+        let libroCalificacionesActual = libCalificaciones.filter((item)=>item.valor === calificacion.libroCalificaciones)[0];
+        let estudianteActual = estudiantes.filter((estudiante)=>estudiante.cedula === calificacion.estudiante)[0];
+        let filaCalificaciones:IReporteCalificacionesDTO=
+    
+    {
+      //reporte calf
+      curso: libroCalificacionesActual.curso,
+      estudiante: estudianteActual.nombre,
+      // estudiante
+      codigoMatricula: estudianteActual.codigoMatricula,
+      nivel: estudianteActual.nivel,
+      cedula: estudianteActual.cedula,
+      nombre: estudianteActual.nombre,
+      edad: estudianteActual.edad,
+      // libro de calificaciones
+      valor: libroCalificacionesActual.valor,
+      actividad: libroCalificacionesActual.actividad,
+      notaMaxima:libroCalificacionesActual.notaMaxima,
+      //calificaciones
+      libroCalificaciones: calificacion.libroCalificaciones,
+      nota: calificacion.nota,
+      calificacion: calificacion.calificacion
+    }
+   
+    reporteLibroCalificacionesDTO.push(filaCalificaciones);
+    
+  
+  })
+  return reporteLibroCalificacionesDTO;
+}
+}
 
+    
+  
+  
+function  generarReporte():void{
+let reporteCalf : ReporteCalificaciones = new ReporteCalificaciones(
+estudiantes,actividades,libCalificaciones,calificaciones);
+let filasReporte:IReporteCalificacionesDTO[] = ReporteCalificaciones.crearLibroCalificacionesDTO()
+}
 
-
-
-
-
-
-
+  
 

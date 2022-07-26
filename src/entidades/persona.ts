@@ -1,6 +1,6 @@
 export interface IPersona{
     id?:number;
-    cedula:number;
+    cedula:string;
     nombre:string;
     edad:number;
 
