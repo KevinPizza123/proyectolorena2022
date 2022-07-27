@@ -153,7 +153,7 @@ seleccionarOpcion();
       opcion.text = config.valor;
       libroCalf_asignacionCalf.add(opcion);
     })
-
+/*
 }
 class ReporteCalificaciones{
  
@@ -209,6 +209,6 @@ let reporteCalf : ReporteCalificaciones = new ReporteCalificaciones(
 estudiantes,actividades,libCalificaciones,calificaciones);
 let filasReporte:IReporteCalificacionesDTO[] = ReporteCalificaciones.crearLibroCalificacionesDTO()
 }
-
+*/
   
 
