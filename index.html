@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registro de datos</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -104,15 +105,17 @@
             <!--* Inputs del Formulario -->
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre Curso</label>
-                <input type="text" name="" id="curso_nombre" class="form-control" placeholder="nombre curso "
+                <input type="text" name="" id="nombre_curso" class="form-control" placeholder=""
                     aria-describedby="helpId">
-                    <label for="nombre" class="form-label">Duracion </label>
-                    <input type="text"  id="curso_duracion" class="form-control" placeholder="duracion curso"
-                    aria-describedby="helpId">
+                <label for="nombre" class="form-label mt-4">Duracion</label>
+                    <input class="form-control" type="time" id="duracion_curso" name="hora" value="11:45:00" max="22:30:00" min="10:00:00" step="1">
                 <div class="card-footer text-muted d-flex justify-content-center mt-5 border-0">
-                   <button  onclick="agregarCurso()" type="button" value="Ingresar" class="btn btn-success col-12">Agregar</button> 
+                    <input onclick="agregarCurso()" type="button" value="Ingresar" class="btn btn-success col-12">
                 </div>
             </div>
+
+        </div>
+    </div>
     <hr>
     <br>
     <div class="card w-50 container-fluid d-flex justify-content-center mb-5">
@@ -126,7 +129,7 @@
                 <input type="text" name="" id="nombre_actividad" class="form-control" placeholder="agregar actividad"
                     aria-describedby="helpId">
                 <div class="card-footer text-muted d-flex justify-content-center mt-5 border-0">
-                   <button  onclick="agregarActividad()" type="button" value="Ingresar" class="btn btn-success col-12">Agregar</button> 
+                    <input onclick="agregarActividad()" type="button" value="Ingresar" class="btn btn-success col-12">
                 </div>
             </div>
 
@@ -136,7 +139,7 @@
     <br>
     <div class="card mt-5 container">
         <div class="card-header">
-           Libro Calificaciones
+            Libro Calificaciones
         </div>
         <div class="card-body">
             <div class="mb-3">
@@ -146,10 +149,10 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="" class="form-label">valor</label>
+                <label for="" class="form-label">Valor</label>
                 <input type="text" name="" id="valor_libroCalf" class="form-control">
 
-                </select>
+                </input>
             </div>
 
             <div class="mb-3">
@@ -161,66 +164,65 @@
                 <label for="" class="form-label">Curso</label>
 
                 <select class="form-control" name="" id="curso_libroCalf">
-                    <!--  <option value="Programacion">Programacion</option>
-                    <option value="Metodologias">Metodologias</option>
-                    <option value="Analisis">Analisis</option> -->
+
                 </select>
             </div>
         </div>
 
         <div class="card-footer text-muted">
-           <button onclick="agregarCalificaciones()" type="button" value="Ingresar" class="btn btn-success col-12">Agregar </button>
+            <input onclick="agregarCalificaciones()" type="button" value="Ingresar" class="btn btn-success col-12">
         </div>
     </div>
     <div class="card mt-5 container">
         <div class="card-header">
-           Asignacion de calificacioens
+            Asignacion de calificaciones
         </div>
         <div class="card-body">
             <div class="mb-3">
                 <label for="" class="form-label">Estudiante</label>
-                <select type="text" name="" id="estudiante_asignacionCalf" class="form-control" placeholder=""
-                    aria-describedby="helpId"><select>
+                <select type="text" name="" id="estudiante_asignacionCalif" class="form-control" placeholder=""
+                    aria-describedby="helpId"></select>
             </div>
             <div class="mb-3">
-                <label for="" class="form-label">Libro caificaciones</label>
-                <select name="" id="estudiante_asignacionCalf" class="form-control">
+                <label for="" class="form-label">Libro calificaciones</label>
+                <select name="" id="libroCalf_asignacionCalf" class="form-control">
 
                 </select>
             </div>
 
             <div class="mb-3">
-                <label for="" class="form-label">Nota</label>
-                <input type="text" name="" id="estudiante_asignacionCalf" class="form-control" placeholder="10"
+                <label for="" class="form-label">Calificacion</label>
+                <input type="text" name="" id="nota_asignacionCalf" class="form-control" placeholder="10"
                     aria-describedby="helpId">
+                </input>
             </div>
-            
+
         </div>
 
         <div class="card-footer text-muted">
-            <button onclick="asignarCalificaciones()" type="button" value="Ingresar" class="btn btn-success col-12"> Agregar</button>
+            <input onclick="asignacionCalificaciones()" type="button" value="Ingresar" class="btn btn-success col-12">
         </div>
     </div>
     <br>
-    <hr><h2>VOSUALIZACION DE DATOS </h2>
-    <div>
-    <button class="btn btn-primary" onclick="generarReporte()">Generar Reporte</button>
+    <h2>Visualizacion de datos</h2>
+    <div class="">
+        <button type="button" class="btn btn-primary" onclick="generarReporte()">Generar Reporte</button>    
     </div>
-    <div>
-    <table>
-    <thead>
-    <th>Cedula</th>
-    <th>Nombre</th>
-    <th>Nivel</th>
-    <th>Curso</th>
-    <th>Actividad</th>
-    <th>Calificacion</th>
-    
-    </thead>
-    <tbody>
- 
+<div class="container-fluid ">
 
-
+    <table id="reporte_tabla" class="table table-striped">
+        <thead>
+            <th>Nombre</th>
+            <th>Nivel</th>
+            <th>Curso</th>
+            <th>Actividad</th>
+            <th>Calificación</th>
+        </thead>
+        <tbody>
+           <tr></tr>
+        </tbody>
+    </table>
+</div>
     <!-- Bootstrap JavaScript Libraries -->
     <script>
         let exports = {};
