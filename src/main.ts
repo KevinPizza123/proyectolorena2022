@@ -230,6 +230,7 @@ function generarReporte(): void {
 
     td = tr.insertCell(4);
     td.innerHTML = fila.valor;
+    reporteTabla.appendChild(tr);
     
   });
 
