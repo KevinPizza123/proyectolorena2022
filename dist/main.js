@@ -12,7 +12,7 @@ function agregarEstudiante() {
         //id:Number(),
         cedula: leerHtml("cedula_estudiante"),
         nombre: leerHtml("nombre_estudiante"),
-        edad: parseInt(leerHtml("edad_estudiante")),
+        edad: leerHtml("edad_estudiante"),
         codigoMatricula: leerHtml("codigoMatricula_estudiante"),
         nivel: leerHtml("nivel_estudiante"),
     };
@@ -29,7 +29,7 @@ function agregarDocente() {
     let docenteActual = {
         cedula: leerHtml("cedula_docente"),
         nombre: leerHtml("nombre_docente"),
-        edad: parseInt(leerHtml("edad_docente")),
+        edad: leerHtml("edad_docente"),
         titulo: leerHtml("titulo_docente"),
         asignatura: leerHtml("asignatura_docente"),
     };
@@ -171,12 +171,18 @@ function generarReporte() {
         td = tr.insertCell(0);
         td.innerHTML = fila.estudiante;
         td = tr.insertCell(1);
-        td.innerHTML = fila.nivel;
+        td.innerHTML = fila.edad;
         td = tr.insertCell(2);
-        td.innerHTML = fila.curso;
+        td.innerHTML = fila.cedula;
         td = tr.insertCell(3);
-        td.innerHTML = fila.actividad;
+        td.innerHTML = fila.codigoMatricula;
         td = tr.insertCell(4);
+        td.innerHTML = fila.nivel;
+        td = tr.insertCell(5);
+        td.innerHTML = fila.curso;
+        td = tr.insertCell(6);
+        td.innerHTML = fila.actividad;
+        td = tr.insertCell(7);
         td.innerHTML = fila.valor;
         reporteTabla.appendChild(tr);
     });
