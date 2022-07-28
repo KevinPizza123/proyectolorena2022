@@ -178,5 +178,6 @@ function generarReporte() {
         td.innerHTML = fila.actividad;
         td = tr.insertCell(4);
         td.innerHTML = fila.valor;
+        reporteTabla.appendChild(tr);
     });
 }
